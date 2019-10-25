@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditCardActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/edit_card_category_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/edit_card_category_tv_txt"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/edit_card_category_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:hint="@string/edit_card_category_et_hint"
+                android:inputType="text"
+                android:textSize="@dimen/font_size" />
+
+            <TextView
+                android:id="@+id/edit_card_ques_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/edit_card_ques_tv_txt"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/edit_card_ques_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:hint="@string/edit_card_ques_et_hint"
+                android:inputType="textMultiLine|text"
+                android:textSize="@dimen/font_size" />
+
+            <TextView
+                android:id="@+id/edit_card_ans_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/edit_card_ans_tv_txt"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/edit_card_ans_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:hint="@string/edit_card_ans_et_hint"
+                android:inputType="textMultiLine|text"
+                android:textSize="@dimen/font_size" />
+
+            <TextView
+                android:id="@+id/edit_card_desc_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/edit_card_desc_tv_txt"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/edit_card_desc_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:hint="@string/edit_card_desc_et_hint"
+                android:inputType="textMultiLine|text"
+                android:textSize="@dimen/font_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/edit_card_cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:layout_weight="1"
+                    android:background="@color/button"
+                    android:onClick="cancel"
+                    android:text="@string/edit_card_cancel_btn_txt"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/font_size" />
+
+                <Button
+                    android:id="@+id/edit_card_confirm_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:layout_weight="1"
+                    android:background="@color/button"
+                    android:onClick="confirm"
+                    android:text="@string/edit_card_confirm_btn_txt"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
