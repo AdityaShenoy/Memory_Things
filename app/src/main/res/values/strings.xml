@@ -3,6 +3,11 @@
 
     <string name="file_name">pq.txt</string>
 
+    <string name="main_priority_label_tv_txt"><b>Priority:</b></string>
+    <string name="main_category_label_tv_txt"><b>Category:</b></string>
+    <string name="main_ques_label_tv_txt"><b>Question:</b></string>
+    <string name="main_ans_label_tv_txt"><b>Answer:</b></string>
+    <string name="main_desc_label_tv_txt"><b>Description:</b></string>
     <string name="main_ans_et_hint">Enter your answer here</string>
     <string name="main_ans_btn_txt">Check Answer</string>
     <string name="main_ans_btn_txt_1">Next Question</string>
@@ -11,23 +16,25 @@
     <string name="main_del_card_btn_txt">Delete</string>
     <string name="main_edit_card_btn_txt">Edit</string>
     <string name="main_list_cards_btn_txt">List</string>
+    <string name="main_ques_info_btn_txt">+</string>
+    <string name="main_ques_info_btn_txt_1">-</string>
 
-    <string name="category0">Category: Application Tutorial</string>
-    <string name="priority0">Priority: 0</string>
+    <string name="category0">Application Tutorial</string>
+    <string name="priority0">0</string>
     <string name="ques0">What is Memory Things?</string>
-    <string name="ans0">Memory Things is an revising assisting application.</string>
+    <string name="ans0">Memory Things is an intelligent revision application.</string>
     <string name="desc0"><b>What does this application contain?</b>\n• This application can contain many cards.\n• A card is a Flashcard containing Priority, Category, Question, Answer and Description.\n• Category, Question, Answer and Description are totally custom to the users.\n\n<b>What is unique about this application?</b>\n• Priority makes this application intelligent.\n• If you answer a question correctly, its priority is decreased.\n• If you answer a question incorrectly, its priority is increased.\n• Thus, the questions that are being answered more incorrectly needs higher priority and thus more revision.\n• The application selects the higher priority cards from all of the cards.\n\n<b>How to use this application?</b>\n• You can create your first application by clicking on the Add button.\n• Once you add at least one card, the other 3 buttons are enabled.\n• The Edit button lets you edit the Category, Question, Answer and Description of the current card being shown.\n• The Delete button shows a confirmation dialog box for deleting the current card being shown.\n• The List button opens a new screen where all the cards available for revision are shown.\n• Each card can be clicked to edit or delete in this list.\n\n<b>How to send queries, errors, feedback and suggestions for the application? Or how to send just Hello :) to the creator of the application?</b>\n• You can send your messages to brainythings49@gmail.com\nWe will try to get back to you as soon as possible.</string>
 
-    <string name="add_card_category_tv_txt">Category:</string>
+    <string name="add_card_category_tv_txt"><b>Category:</b></string>
     <string name="add_card_category_et_hint">Enter category here</string>
     <string name="add_card_category_et_hint_1">Category cannot be empty!</string>
-    <string name="add_card_ques_tv_txt">Question:</string>
+    <string name="add_card_ques_tv_txt"><b>Question:</b></string>
     <string name="add_card_ques_et_hint">Enter question here</string>
     <string name="add_card_ques_et_hint_1">Question cannot be empty!</string>
-    <string name="add_card_ans_tv_txt">Answer:</string>
+    <string name="add_card_ans_tv_txt"><b>Answer:</b></string>
     <string name="add_card_ans_et_hint">Enter answer here</string>
     <string name="add_card_ans_et_hint_1">Answer cannot be empty!</string>
-    <string name="add_card_desc_tv_txt">Description:</string>
+    <string name="add_card_desc_tv_txt"><b>Description:</b></string>
     <string name="add_card_desc_et_hint">Enter description here</string>
     <string name="add_card_desc_et_hint_1">Description cannot be empty!</string>
     <string name="add_card_cancel_btn_txt">Cancel</string>
@@ -37,16 +44,16 @@
     <string name="del_card_alert_dialog_cancel">Cancel</string>
     <string name="del_card_alert_dialog_msg">Do you really want to delete this card?</string>
 
-    <string name="edit_card_category_tv_txt">Category:</string>
+    <string name="edit_card_category_tv_txt"><b>Category:</b></string>
     <string name="edit_card_category_et_hint">Enter category here</string>
     <string name="edit_card_category_et_hint_1">Category cannot be empty!</string>
-    <string name="edit_card_ques_tv_txt">Question:</string>
+    <string name="edit_card_ques_tv_txt"><b>Question:</b></string>
     <string name="edit_card_ques_et_hint">Enter question here</string>
     <string name="edit_card_ques_et_hint_1">Question cannot be empty!</string>
-    <string name="edit_card_ans_tv_txt">Answer:</string>
+    <string name="edit_card_ans_tv_txt"><b>Answer:</b></string>
     <string name="edit_card_ans_et_hint">Enter answer here</string>
     <string name="edit_card_ans_et_hint_1">Answer cannot be empty!</string>
-    <string name="edit_card_desc_tv_txt">Description:</string>
+    <string name="edit_card_desc_tv_txt"><b>Description:</b></string>
     <string name="edit_card_desc_et_hint">Enter description here</string>
     <string name="edit_card_desc_et_hint_1">Description cannot be empty!</string>
     <string name="edit_card_cancel_btn_txt">Cancel</string>

@@ -3,6 +3,7 @@ package com.brainy_things.memory_things;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 public class Card implements Serializable, Comparable<Card> {
     // These are the members which store the card information
@@ -27,6 +28,12 @@ public class Card implements Serializable, Comparable<Card> {
     @Override
     public int compareTo(@NonNull Card c) {
         return c.priority - this.priority;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format(Locale.US, "%s\n%s\n%s\n%s\n%d", category, ques, ans, desc, priority);
     }
 
     // Following methods are the getter and setter methods for the above private members

@@ -3,9 +3,7 @@ package com.brainy_things.memory_things;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +11,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +30,14 @@ public class ListCardsActivity extends AppCompatActivity {
 
     // This is the priority queue used to store the cards
     private PriorityQueue<Card> pq;
+
+    // This is to update the changes made in this activity
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +74,14 @@ public class ListCardsActivity extends AppCompatActivity {
             // Extract margin from dimens resource
             int margin = (int) getResources().getDimension(R.dimen.margin);
 
-            // Border of each text view
-            ShapeDrawable sd = new ShapeDrawable();
-            sd.setShape(new RectShape());
-            sd.getPaint().setColor(Color.BLACK);
-            sd.getPaint().setStrokeWidth(1);
-            sd.getPaint().setStyle(Paint.Style.STROKE);
+            // Layout Params for setting margins
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            lp.setMargins(margin, margin, margin, margin);
+
+            // Font for TextView
+            Typeface tf = Typeface.create("sans-serif-light", Typeface.NORMAL);
 
             // Iterate through all the cards in pq
             for (final Card c : pq) {
@@ -93,13 +102,16 @@ public class ListCardsActivity extends AppCompatActivity {
 
                 tv.setTextSize(20);
                 tv.setTextColor(Color.BLACK);
-                tv.setPadding(margin, margin, margin, margin);
-                tv.setBackground(sd); // Border
+                tv.setTypeface(tf); // Font family
+                tv.setLineSpacing(getResources().getDimension(R.dimen.line_spacing), 1);
+                tv.setLayoutParams(lp); // Margin
+                tv.setPadding(margin, margin, margin, margin/2);
+                tv.setBackground(getResources().getDrawable(R.drawable.section)); // Border
 
                 // Show options to edit and delete the card
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(final View v) {
                         new AlertDialog.Builder(v.getContext())
                                 .setTitle(R.string.list_cards_alert_dialog_title)
                                 .setMessage(R.string.list_cards_alert_dialog_message)
@@ -110,7 +122,14 @@ public class ListCardsActivity extends AppCompatActivity {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 pq.remove(c);
                                                 storePQ();
-                                                listCards();
+
+                                                // If the last card has been deleted
+                                                if (pq.isEmpty()) {
+                                                    Intent i = new Intent(v.getContext(), MainActivity.class);
+                                                    startActivity(i);
+                                                } else {
+                                                    listCards();
+                                                }
                                             }
                                         })
                                 .show();

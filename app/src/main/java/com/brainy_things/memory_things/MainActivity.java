@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
@@ -15,7 +16,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.PriorityQueue;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     // This function will find and display next card from pq
     private void showNextCard() {
-        TextView mainCategoryTV = findViewById(R.id.main_category_tv);
-        TextView mainPriorityTV = findViewById(R.id.main_priority_tv);
-        TextView mainQuesTV = findViewById(R.id.main_ques_tv);
-        TextView mainAnsTV = findViewById(R.id.main_ans_tv);
-        TextView mainDescTV = findViewById(R.id.main_desc_tv);
+        TextView mainCategoryTxtTV = findViewById(R.id.main_category_txt_tv);
+        TextView mainPriorityTxtTV = findViewById(R.id.main_priority_txt_tv);
+        TextView mainQuesTxtTV = findViewById(R.id.main_ques_txt_tv);
+        TextView mainAnsTxtTV = findViewById(R.id.main_ans_txt_tv);
+        TextView mainDescTxtTV = findViewById(R.id.main_desc_txt_tv);
         EditText mainAnsET = findViewById(R.id.main_ans_et);
         final Button mainAnsBtn = findViewById(R.id.main_ans_btn);
         Button mainDelCardBtn = findViewById(R.id.main_del_card_btn);
@@ -87,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
         // If there are no cards in pq, show the 0th card
         if (pq.isEmpty()) {
-            mainCategoryTV.setText(R.string.category0);
-            mainPriorityTV.setText(R.string.priority0);
-            mainQuesTV.setText(R.string.ques0);
-            mainAnsTV.setText(R.string.ans0);
-            mainDescTV.setText(R.string.desc0);
+            mainCategoryTxtTV.setText(R.string.category0);
+            mainPriorityTxtTV.setText(R.string.priority0);
+            mainQuesTxtTV.setText(R.string.ques0);
+            mainAnsTxtTV.setText(R.string.ans0);
+            mainDescTxtTV.setText(R.string.desc0);
 
             // As there are no card in pq, there is no use of delete,
             // edit and list card button so we disable them
@@ -105,13 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
             // Show the card priority, question, answer and description in layout
             // noinspection ConstantConditions
-            mainCategoryTV.setText(
-                    String.format(Locale.US, "Category: %s", currentCard.getCategory()));
-            mainPriorityTV.setText(
-                    String.format(Locale.US, "Priority: %s", currentCard.getPriority()));
-            mainQuesTV.setText(currentCard.getQues());
-            mainAnsTV.setText(currentCard.getAns());
-            mainDescTV.setText(currentCard.getDesc());
+            mainCategoryTxtTV.setText(currentCard.getCategory());
+            mainPriorityTxtTV.setText(String.valueOf(currentCard.getPriority()));
+            mainQuesTxtTV.setText(currentCard.getQues());
+            mainAnsTxtTV.setText(currentCard.getAns());
+            mainDescTxtTV.setText(currentCard.getDesc());
 
             // Enable deleting, editing and list card buttons
             mainDelCardBtn.setEnabled(true);
@@ -120,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Hide the answers and descriptions
-        mainAnsTV.setVisibility(View.INVISIBLE);
-        mainDescTV.setVisibility(View.INVISIBLE);
+        mainAnsTxtTV.setVisibility(View.INVISIBLE);
+        mainDescTxtTV.setVisibility(View.INVISIBLE);
 
         // Make the input field empty
         mainAnsET.setText("");
@@ -167,13 +165,13 @@ public class MainActivity extends AppCompatActivity {
             // Store pq into file system
             storePQ();
         }
-        TextView mainAnsTV = findViewById(R.id.main_ans_tv);
-        TextView mainDescTV = findViewById(R.id.main_desc_tv);
+        TextView mainAnsTxtTV = findViewById(R.id.main_ans_txt_tv);
+        TextView mainDescTxtTV = findViewById(R.id.main_desc_txt_tv);
         final Button mainAnsBtn = findViewById(R.id.main_ans_btn);
 
         // Reveal the answers and description
-        mainAnsTV.setVisibility(View.VISIBLE);
-        mainDescTV.setVisibility(View.VISIBLE);
+        mainAnsTxtTV.setVisibility(View.VISIBLE);
+        mainDescTxtTV.setVisibility(View.VISIBLE);
 
         // Change the text and call back function of the button
         mainAnsBtn.setText(R.string.main_ans_btn_txt_1);
@@ -185,6 +183,27 @@ public class MainActivity extends AppCompatActivity {
                 showNextCard();
             }
         });
+    }
+
+    // This button toggles the visibility of the priority and category layouts
+    public void showInfo(View v) {
+        LinearLayout mainPriorityLayout = findViewById(R.id.main_priority_layout);
+        LinearLayout mainCategoryLayout = findViewById(R.id.main_category_layout);
+
+        // If the layouts are visible
+        if (mainPriorityLayout.getVisibility() == View.VISIBLE) {
+
+            // Make the layouts invisible
+            mainPriorityLayout.setVisibility(View.GONE);
+            mainCategoryLayout.setVisibility(View.GONE);
+            ((TextView)v).setText(R.string.main_ques_info_btn_txt);
+        } else {
+
+            // Make the layouts invisible
+            mainPriorityLayout.setVisibility(View.VISIBLE);
+            mainCategoryLayout.setVisibility(View.VISIBLE);
+            ((TextView)v).setText(R.string.main_ques_info_btn_txt_1);
+        }
     }
 
     // This function will start the AddCard activity

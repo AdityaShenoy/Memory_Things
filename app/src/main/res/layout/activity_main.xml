@@ -24,8 +24,10 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:background="@color/button"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-medium"
             android:onClick="addCard"
             android:text="@string/main_add_card_btn_txt"
             android:textAllCaps="false" />
@@ -35,8 +37,10 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:background="@color/button"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-medium"
             android:onClick="delCard"
             android:text="@string/main_del_card_btn_txt"
             android:textAllCaps="false" />
@@ -46,8 +50,10 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:background="@color/button"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-medium"
             android:onClick="editCard"
             android:text="@string/main_edit_card_btn_txt"
             android:textAllCaps="false" />
@@ -57,8 +63,10 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:background="@color/button"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-medium"
             android:onClick="listCards"
             android:text="@string/main_list_cards_btn_txt"
             android:textAllCaps="false" />
@@ -78,39 +86,128 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/main_priority_tv"
+            <LinearLayout
+                android:id="@+id/main_priority_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:background="@drawable/section"
+                android:orientation="vertical"
+                android:padding="@dimen/margin"
+                android:visibility="gone">
 
-            <TextView
-                android:id="@+id/main_category_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                <TextView
+                    android:id="@+id/main_priority_label_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/label_margin"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:text="@string/main_priority_label_tv_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/main_ques_tv"
+                <TextView
+                    android:id="@+id/main_priority_txt_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_category_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:background="@drawable/section"
+                android:orientation="vertical"
+                android:padding="@dimen/margin"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/main_category_label_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/label_margin"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:text="@string/main_category_label_tv_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+
+                <TextView
+                    android:id="@+id/main_category_txt_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/section"
+                android:orientation="vertical"
+                android:padding="@dimen/margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/main_ques_label_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/label_margin"
+                        android:layout_weight="15"
+                        android:fontFamily="sans-serif-light"
+                        android:lineSpacingExtra="@dimen/line_spacing"
+                        android:text="@string/main_ques_label_tv_txt"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_size" />
+
+                    <Button
+                        android:id="@+id/main_ques_info_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/mian_ques_info_btn_height"
+                        android:layout_weight="1"
+                        android:background="@drawable/info"
+                        android:onClick="showInfo"
+                        android:text="@string/main_ques_info_btn_txt"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/main_ques_info_btn_dimen" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/main_ques_txt_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/main_ans_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:background="@drawable/section"
                 android:ems="10"
+                android:fontFamily="sans-serif-light"
                 android:hint="@string/main_ans_et_hint"
                 android:imeOptions="actionGo"
                 android:inputType="textMultiLine|text"
+                android:padding="@dimen/margin"
                 android:textSize="@dimen/font_size" />
 
             <Button
@@ -119,25 +216,68 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:background="@color/button"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-medium"
                 android:textAllCaps="false"
                 android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/main_ans_tv"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:background="@drawable/section"
+                android:orientation="vertical"
+                android:padding="@dimen/margin">
 
-            <TextView
-                android:id="@+id/main_desc_tv"
+                <TextView
+                    android:id="@+id/main_ans_label_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/label_margin"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:text="@string/main_ans_label_tv_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+
+                <TextView
+                    android:id="@+id/main_ans_txt_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:background="@drawable/section"
+                android:orientation="vertical"
+                android:padding="@dimen/margin">
+
+                <TextView
+                    android:id="@+id/main_desc_label_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/label_margin"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:text="@string/main_desc_label_tv_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+
+                <TextView
+                    android:id="@+id/main_desc_txt_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

@@ -2,4 +2,8 @@
 <resources>
     <dimen name="font_size">25sp</dimen>
     <dimen name="margin">16dp</dimen>
+    <dimen name="line_spacing">10sp</dimen>
+    <dimen name="label_margin">5sp</dimen>
+    <dimen name="main_ques_info_btn_dimen">15sp</dimen>
+    <dimen name="mian_ques_info_btn_height">20sp</dimen>
 </resources>
